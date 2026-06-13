@@ -372,10 +372,36 @@ df, cosine_sim = load_data()
 # ─────────────────────────────────────────────
 # HEADER
 # ─────────────────────────────────────────────
+import base64
+
+def get_image_base64(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+logo_b64 = get_image_base64("Logo_PENS_putih.png")
+
 st.markdown(f"""
-<div class="ted-header">
-    <h1>🎤 <span class="ted-red">TED</span> Talks Recommender</h1>
-    <p class="subtitle">Powered by Content-Based Filtering · Audio & Text Features</p>
+<div class="ted-header" style="position:relative;">
+    <div style="position:absolute; top:16px; right:20px;">
+        <img src="data:image/png;base64,{logo_b64}" width="44">
+    </div>
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+        <h1 style="margin:0;">🎤 <span class="ted-red">TED</span> Talks Recommender</h1>
+        <span style="
+            display:inline-block;
+            background:#E62B1E;
+            color:#ffffff;
+            font-size:0.5rem;
+            font-weight:700;
+            padding:3px 12px;
+            border-radius:999px;
+            letter-spacing:0.5px;
+            white-space:nowrap;
+            margin-top:8px;
+            margin-left:-20px;
+        ">aisyahhnmf</span>
+    </div>
+    <p class="subtitle">Powered by Content-Based Filtering &nbsp;&nbsp;·&nbsp;&nbsp; Audio & Text Features</p>
     <div class="desc">
         Platform ini membantu kamu menemukan <b>TED Talks yang relevan</b> berdasarkan talk yang sudah kamu tonton atau sukai.
         Cukup pilih satu talk, dan sistem akan merekomendasikan talk lain yang serupa — berdasarkan
